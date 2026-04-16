@@ -7,7 +7,7 @@ import sys
 
 # 配置
 repo_path = "."  # 当前目录，或者改成你的仓库路径
-start_date = datetime.now() - timedelta(days=10)  # 从365天前开始
+start_date = datetime.now() - timedelta(days=10)  # 从days天前开始
 end_date = datetime.now()
 
 # 设置随机种子（可选）
@@ -23,7 +23,7 @@ def get_commit_count(date):
     weekday = date.weekday()  # 0=周一, 1=周二, 2=周三, 3=周四, 4=周五, 5=周六, 6=周日
     
     if weekday <= 4:  # 周一到周五
-        return random.randint(1, 10)
+        return random.randint(1, 10) # 修改每天的提交次数，概率平均分布
     else:  # 周六和周日
         return 0 if random.random() < 0.75 else 1
 
